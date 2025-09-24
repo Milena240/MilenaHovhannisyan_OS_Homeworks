@@ -1,0 +1,28 @@
+Assignment 0: 
+I added printf for each of the child's, to print process id of the child and the parent, to see where it goes. 
+After seeing the output, we can count the number of processed by their IDs, and we will see that we get 8 different processes. As we have 3 fork(), we have 2^n processes, in this case, 2^3 = 8.
+Hierarchy is like this. The main process has 3 forks, first fork has 2 new processes, inside the 2 new processes there is one more process, second fork has one more process. So main + 3 + 2 + 1 + 1 = 8
+
+main - fork1 
+            fork2 fork3
+            fork3  
+       fork2 
+            fork3
+       fork3
+
+
+Assignment 1:
+First, we fork the process, new process is being created, i added a condition, if the new process is successfully created, then execute the command ls. Then the parent process is waiting the only child to finish its execution, when its finished, "Parent process done" is printed and processes are finished.
+
+
+Assignment 2:
+First, we fork the main process, and if the fork is successful, ls command is executed, then the parent is waiting for the first child to finish and second fork is done. Again, if its successful, date command is executed and parent also waits the second process to be finished, and if it is, final message is printed, "Parent process done".
+At first i wrote both waits at the end, but when i run the program, date was being printed first, so i added the first child wait before second fork, to make sure command are working by order. 
+
+Assignment 3:
+This program is similar to the previous two programs. Again we fork then execute echo command this time. But this time, except passing the path and the name of the command, we pass an argument which should work as passing argument to the echo command, and ending it with NULL.
+Parent again waits the child, and prints.
+
+
+Assignment 4:
+Logic and coding of this program is the same as previous one. But this time, we pass one more argument. For running the command grep, we should specify what we are searching and where we are searching it. Here also, first I specify the word "Milena" which I'm searching and the file where I'm searching it.

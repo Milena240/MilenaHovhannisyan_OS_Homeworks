@@ -1,0 +1,23 @@
+
+
+Assignment 1:
+From the start of the main, we fork the program. And we check the error if for is failed. If its not failed and works pid is 0, we print the PID of child, parent doesnt wait for anything, it just prints its PID. 
+
+
+Assignment 2: 
+We define 2 pid_t type variables and int status, where we will keep the information about how the child has finished its work. 
+First fork() is done, we check if its done successfully. Print child's PID and exit with value 1. 
+Then we wait for the child to finish and get its status and print it finished status. 
+SAme with thw second child, but this time we use wait() for a specific child, by telling the child pid, and getting the status. After which again printing the status of exit of that child.
+
+
+Assignment 3: 
+I defined 2 functions, callBeforeExit 1 and 2. These functions are void and arguments also are void. They just print something. In the main i call atecit function two times for both functions as arguments. And when the main reched to the exit(0), before exiting it calls back the two functions, but with reversed order. Last registered is called first. 
+
+
+Assignment 4: 
+Again 2 children. If pid is not valid, shows failure, else exits with some number. Parent waits for the child to exit, and prints the exit value. else, prints abnormally exit, same with second one.
+
+
+Assignment 5: 
+Zombi processes are created when for example the child has finished its work, but should wait fot its parent to exit. And when the parent is not responding, in our example is in the sleep mode, child becomes zombie and waits for the parent to get out of the sleep mode so it can exit. When we call wait() int the parent, child doesnt wait the parent to finish. Parent collects the child's exit status without making it zombie. 

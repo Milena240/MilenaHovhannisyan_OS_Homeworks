@@ -1,0 +1,17 @@
+The nm of object files and final executable are very different. 
+main.o has undefined refenerce to the function square. 
+We can see that main is in Text segment and printf and square are undefined.
+In the math_utils.o square is defined with offset 00000000.
+In the final executable we can see already linked ones. 
+We have the main and square in Text segment of the memory, undefined printf which likes to the library of printf.
+
+In objdump of object files we see the partial assembly of the object file with unresolved calls. 
+We see three of them are have elf format. THe final executable shows already the full addresses of the funstions square, printf. Like square is 000000000000118c <square>:
+We can see the start, from where the program starts it work, where main is called. 
+0000000000001060 <_start>: start is thias and main this: 0000000000001149 <main>:
+
+In o files we can see Name, Type, Address and Offset.
+We can see the segments, .text .data and so one, se we see exactly where is our data stored. Mostly where the code and data are located.
+THe executable has runtime sections alse, like .interp, .dynstr and so on. These are for dynamic linking and program loading.  
+
+Linking combines symbols from different obj files, it resolves external references, like in our case the square function, and it gives us the complete executable with already filled and linked addresses.
