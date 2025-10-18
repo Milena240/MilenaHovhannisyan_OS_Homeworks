@@ -1,0 +1,4 @@
+As we can see each type has a specific size of bytes which they need to be allocated in the 
+memory. int - 4, char - 1, double 8, short 2. One thing that we can notice is that each type 
+address is divisable by the bytes they have. 
+And even though the variables are declared sequentially, the compiler may reorder or inster paddings between then, to make sure that CPU can access the data efficiently.

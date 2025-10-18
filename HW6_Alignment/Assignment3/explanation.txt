@@ -1,0 +1,4 @@
+In this example we can see a difference between the sizes of structd.
+In the first example, compiler does its work as it alwasy do, it adds paddings between varibles so cpu can read them efficiently. And the size is 16, as it add 3 pad after char, so 1(char) + 3(pad) + 4(int) + 8(double) = 16
+THe second example, when we use #pragma pack(1) compiler disables alignment padding and packs all members on 1-byte boundaries. So the size of the struct calculates as, 1(char) + 4(int) + 8(double) = 13
+And also we can see the variable references in the memory. 

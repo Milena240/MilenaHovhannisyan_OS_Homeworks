@@ -1,0 +1,5 @@
+In this example as we see the size of struct stays the same.
+In the first case char c starts at offset 0, to align the next variable with is int, compiler adds 3 bytes, then int is allocated, then to align double, compiler doesnt add any padding beacuse offset 8 is already align, so it just adds double. And struct has size 16.
+
+In the second case, double d starts at offset 0 and align 8 bytes. then int starts at offset 8, with 4 bytes, then cgar starts at 12 offset, but the compiler adds 3 byte pad, so the total size is a multiple of 8. And the size of the struct is again 12.
+
