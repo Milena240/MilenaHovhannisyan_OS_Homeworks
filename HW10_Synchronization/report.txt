@@ -1,0 +1,17 @@
+Problem 1: 
+THe first function, ordinary one give wrong result, as ++counter is not an atomic operation, so the order of thread's read and write may couse lost of updates and it causes wrong answer of counter.
+The mutex and spin lock escapes theat prblem, the ensure that only one thread can execute at a time, preventing race condition. So these two ones give wrote answer.           o/ Wake other consumers so they can also exit
+
+Problem 2:
+For a short critical section spinlock can be faster because threads spin briefly without performing an expensive context switch. However, for a long critical section (like when usleep(100) is inside the lock), spinning wastes CPU time because waiting threads continuously burn cycles. In contrast, a mutex puts waiting threads to sleep, making it more efficient for long waits. Therefore, spinning is worse when the critical section is long or when many threads compete for the lock.
+
+Problem 3:
+Semaphores control how many items are in the buffer, but they do not protect the shared variables buffer, in_pos, or out_pos themselves. Without a mutex, two threads could modify or read these variables at the same time, corrupting the buffer or overwriting data. The mutex ensures that only one thread accesses the shared buffer indices at a time.
+
+Problem 4:
+Using sleep() is unreliable because thread scheduling is not deterministic—sleep() only delays a thread but does not guarantee another specific thread will run next. Semaphores enforce strict ordering regardless of timing or system load.
+
+Problem 5:
+If the semaphore is initialized to 1, only one thread can use the printers at a time, making the system behave like there is only one printer. If it is initialized to a value larger than the actual number of printers, too many threads will enter the printing section simultaneously, violating the resource limit.
+
+
